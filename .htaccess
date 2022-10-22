@@ -1,0 +1,10 @@
+RewriteEngine On
+# Disable directory browsing
+Options All -Indexes
+
+RewriteRule ^inc/.*$ index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# redirect anything else to index.php
+# RewriteRule ^(.*)$ index.php [QSA,L]
+RewriteRule ^([\s\S]*)$ index.php/$1 [L,NC,QSA]
